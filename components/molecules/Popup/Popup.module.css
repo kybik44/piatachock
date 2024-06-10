@@ -1,0 +1,47 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  padding: 16px;
+}
+
+.popupContent {
+  position: relative;
+  max-width: fit-content;
+  width: 100%;
+}
+
+.closeButton {
+  position: absolute;
+  top: 5px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 48px;
+  cursor: pointer;
+  color: #b43131;
+  z-index: 10;
+}
+
+.closeButton:hover {
+  color: #472115;
+}
+
+@media (max-width: 640px) {
+  .popupContent {
+    border-radius: 10px;
+  }
+
+  .closeButton {
+    top: 7px;
+    right: 15px;
+    font-size: 35px;
+  }
+}

@@ -1,0 +1,147 @@
+.accordion {
+  background-color: #f6f6f6;
+  border: 2px solid #f6f6f6;
+  border-radius: 14px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.accordion.open {
+  background-color: #fff;
+}
+
+@media (max-width: 991px) {
+  .accordion.open {
+    border-color: #472115;
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 38px;
+}
+
+@media (max-width: 991px) {
+  .header {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .header {
+    padding: 20px;
+  }
+}
+
+.title {
+  flex: 1;
+  color: #1b1b1b;
+  font-weight: 500 !important;
+  transition: all 0.3s ease;
+  margin-right: 16px;
+}
+
+.open .title {
+  color: #472115;
+}
+
+.icon {
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.accordion:hover {
+  background-color: #ebe8e8;
+}
+
+.accordion.open:hover {
+  background-color: initial;
+}
+
+@media (max-width: 991px) {
+  .icon {
+    padding: 11px;
+  }
+}
+
+@media (max-width: 640px) {
+  .icon {
+    padding: 8px;
+  }
+}
+
+.icon svg {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s ease;
+}
+
+@media (max-width: 991px) {
+  .icon svg {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+@media (max-width: 640px) {
+  .icon svg {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+.icon svg path {
+  stroke: #1b1b1b;
+  transition: stroke 0.3s ease;
+}
+
+.open .icon {
+  background-color: #472115;
+}
+
+.open .icon svg path {
+  stroke: #f6f6f6;
+}
+
+.open .icon svg {
+  transform: rotate(180deg);
+}
+
+/* Content Styles */
+.content {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.5s ease-in-out, opacity 0.5s ease-in-out;
+  opacity: 0;
+}
+
+.open .content {
+  max-height: 500px;
+  opacity: 1;
+}
+
+.innerContent {
+  padding: 0 38px 20px;
+  line-height: 1.3;
+  color: rgba(27, 27, 27, 0.5);
+}
+
+@media (max-width: 991px) {
+  .innerContent {
+    padding: 0 24px 20px;
+  }
+}
+
+@media (max-width: 640px) {
+  .innerContent {
+    padding: 0 20px 20px;
+  }
+}

@@ -1,0 +1,20 @@
+.navItem {
+  text-decoration: none;
+}
+
+.navItemText {
+  font-size: 20px;
+  color: #1b1b1b;
+  opacity: 0.6;
+}
+
+.navItemText.active {
+  color: #b43131;
+  opacity: 1;
+}
+
+.navItemText:hover,
+.navItemText:focus {
+  color: #b43131;
+  opacity: 0.5;
+}

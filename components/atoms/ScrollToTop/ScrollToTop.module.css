@@ -1,0 +1,30 @@
+.scrollTop {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: fixed;
+  bottom: 3%;
+  right: 7%;
+  color: #472115;
+  font-size: 18px;
+  background-color: #f0f0f0;
+  padding: 12px;
+  border-radius: 20px;
+  z-index: 10;
+}
+
+@media (max-width: 991px) {
+  .scrollTop {
+  }
+}
+
+@media (max-width: 640px) {
+  .scrollTop {
+    bottom: 2%;
+    right: 2%;
+  }
+}
+.icon{
+  width: 10px;
+  height: 15px;
+}

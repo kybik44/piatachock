@@ -1,0 +1,54 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+@media (max-width: 991px) {
+  .form {
+    gap: 12px;
+    margin-top: 24px;
+  }
+}
+
+@media (max-width: 640px) {
+  .form {
+    margin-top: 16px;
+  }
+}
+
+.submitButton {
+  align-self: end !important;
+  margin-top: 20px;
+}
+
+.submitContactsButton {
+  background-color: #472115;
+}
+
+@media (max-width: 640px) {
+  .submitButton {
+    width: 100%;
+    margin-top: 6px;
+  }
+}
+.contactsForm {
+  margin-top: 0;
+}
+
+@media (max-width: 991px) {
+  .contactsForm {
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 640px) {
+  .contactsForm {
+    margin-top: 16px;
+  }
+}
+
+.errorInput {
+  border-color: red;
+}

@@ -1,0 +1,33 @@
+.breadcrumbs {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  position: absolute;
+  top: 25px;
+  left: 50px;
+}
+
+.breadcrumbs a {
+  color: #fff;
+  opacity: 0.5;
+  text-decoration: none;
+}
+
+.breadcrumbs .separator {
+  margin: 0 5px;
+  color: #fff;
+  opacity: 0.5;
+}
+
+.active {
+  color: #fff;
+}
+
+
+
+@media (max-width: 991px) {
+  .breadcrumbs {
+    top: 15px;
+    left: 40px;
+  }
+}

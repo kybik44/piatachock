@@ -1,0 +1,83 @@
+.carouselContainer {
+  position: relative;
+  width: 100%;
+  gap: 40px;
+
+}
+
+.splide {
+  background-color: #fff;
+  height: 100%;
+}
+
+.navButtons {
+  display: flex;
+  z-index: 2;
+  gap: 10px;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.flyButtons {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  margin-top: 0;
+}
+
+.navButton {
+  padding: 10px;
+  background-color: #472115;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.navButton:hover {
+  background-color: #dad6d6;
+}
+
+.navButton:hover svg {
+  fill: #472115;
+}
+
+.navButton:disabled {
+  background-color: #5c3124;
+}
+
+.navButton img {
+  width: 24px;
+  height: 24px;
+}
+
+@media (max-width: 1280px) {
+  .splide {
+    height: 40vh;
+    width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .splide {
+    height: 260px;
+  }
+
+  .reviewsSplide {
+    height: 100%;
+  }
+
+  .navButton {
+    padding: 5px;
+  }
+}
+
+@media (max-width: 640px) {
+  .slide {
+    width: 361px !important;
+  }
+}

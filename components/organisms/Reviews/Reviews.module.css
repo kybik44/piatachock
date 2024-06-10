@@ -1,0 +1,119 @@
+.reviews {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  align-items: stretch;
+  margin-bottom: 100px;
+}
+
+@media (max-width: 1280px) {
+  .reviews {
+    margin-bottom: 80px;
+  }
+}
+
+@media (max-width: 991px) {
+  .reviews {
+    margin-bottom: 60px;
+  }
+}
+
+@media (max-width: 640px) {
+  .reviews {
+    gap: 20px;
+    margin-bottom: 36px;
+  }
+}
+
+.title {
+  text-transform: uppercase;
+}
+
+.carousel {
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  max-width: calc(100vw - 40px); /* Add this line */
+  gap: 40px;
+}
+
+@media (max-width: 991px) {
+  .carousel {
+    gap: 24px;
+  }
+}
+
+.review {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 50px 60px 40px;
+  background-color: #f6f6f6;
+  width: 100%;
+  height: 100%;
+  max-width: 584px;
+  border-radius: 30px;
+  gap: 50px;
+}
+
+@media (max-width: 1280px) {
+  .review {
+    padding: 40px;
+  }
+}
+
+@media (max-width: 640px) {
+  .review {
+    padding: 16px;
+    border-radius: 20px;
+    max-width: 340px;
+  }
+}
+
+.name {
+  font-weight: 700;
+  color: #1b1b1b;
+}
+
+.text {
+  color: #1b1b1b;
+  max-width: 430px;
+}
+
+.navButtons {
+  display: flex;
+  z-index: 2;
+  gap: 10px;
+  justify-content: center;
+}
+
+.navButton {
+  padding: 10px;
+  background-color: #472115;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.navButton:hover {
+  background-color: #dad6d6;
+}
+
+.navButton:hover svg {
+  fill: #472115;
+}
+
+.navButton:disabled {
+  background-color: #5c3124;
+}
+
+.navButton img {
+  width: 24px;
+  height: 24px;
+}

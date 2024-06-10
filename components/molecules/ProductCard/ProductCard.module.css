@@ -1,0 +1,145 @@
+.card {
+  background: #f6f6f6;
+  border-radius: 20px;
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+@media (max-width: 991px) {
+  .card {
+    padding: 8px;
+  }
+}
+
+@media (max-width: 640px) {
+  .card {
+  }
+}
+
+.cardImageContainer {
+  position: relative;
+  width: 100%;
+  padding-top: 79%;
+  border-radius: 10px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.cardImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cardInfoContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 30px 30px 20px 30px;
+  height: 100%;
+}
+
+@media (max-width: 991px) {
+  .cardInfoContainer {
+    gap: 20px;
+    padding: 16px;
+  }
+}
+
+@media (max-width: 640px) {
+  .cardInfoContainer {
+    gap: 16px;
+    padding: 16px 0 4px 0;
+  }
+}
+
+.cardInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.cardInfoNames {
+  flex-grow: 1;
+}
+
+.cardInfoTitle {
+  color: #472115;
+  margin-bottom: 15px;
+}
+
+@media (max-width: 640px) {
+  .cardInfoTitle {
+    font-size: 10px !important;
+    margin-bottom: 4px;
+  }
+}
+
+.cardInfoCategory {
+  color: rgba(27, 27, 27, 0.6);
+}
+
+@media (max-width: 640px) {
+  .cardInfoCategory {
+    font-size: 10px !important;
+  }
+}
+
+.cardInfoWeight {
+  color: rgba(27, 27, 27, 0.6);
+  margin-left: 8px;
+}
+
+@media (max-width: 640px) {
+  .cardInfoWeight {
+    font-size: 10px !important;
+  }
+}
+
+.buttonsRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.button {
+  width: 100%;
+  min-width: auto;
+  align-self: end;
+}
+
+.catalogButton {
+  background-color: #472115;
+  color: #fff;
+}
+
+.catalogButton:last-of-type:hover {
+  background-color: transparent;
+  color: #472115;
+}
+
+@media (max-width: 1100px) {
+  .buttonsRow {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 1100px) {
+}
+
+@media (max-width: 640px) {
+  .button {
+    align-self: center;
+  }
+
+  .button div {
+    font-size: 12px !important;
+  }
+}

@@ -1,0 +1,54 @@
+.catalogItem {
+  position: relative;
+  border-radius: 30px;
+  overflow: hidden;
+  aspect-ratio: 1;
+  cursor: pointer;
+}
+
+@media (max-width: 640px) {
+  .catalogItem {
+    aspect-ratio: auto;
+    max-height: 100%;
+  }
+}
+
+.catalogItemImage {
+  width: 100%;
+  height: 100%;
+  display: block;
+  border-radius: 30px;
+  object-fit: cover;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 640px) {
+  .catalogItemImage {
+    height: 100%;
+  }
+}
+.catalogItemOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  border-radius: 30px;
+  padding: 20px;
+
+  overflow: hidden;
+}
+
+.catalogItem:hover .catalogItemImage {
+  transform: scale(1.2);
+}
+
+.catalogItemText {
+  color: #fff;
+  text-align: left;
+  max-width: 345px;
+}

@@ -1,0 +1,52 @@
+/* MapSection.module.css */
+.mapSection {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border-radius: 30px;
+  overflow: hidden;
+  border: 1px solid #bcbcbcff;
+  margin-bottom: 80px;
+}
+
+.map {
+  width: 100%;
+  height: 50vh;
+}
+
+.mapHeader {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background-color: #472115ff;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  z-index: 10;
+}
+
+.mapHeaderText {
+  color: #ffffff;
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  text-align: center;
+}
+
+.mapHeaderIcon {
+  width: 50px;
+  height: 50px;
+  margin-left: 20px;
+}
+
+@media (max-width: 991px) {
+  .mapSection {
+    margin-bottom: 60px;
+  }
+}
+
+@media (max-width: 640px) {
+  .mapSection {
+    border: 1px solid #5c3124;
+    margin-bottom: 36px;
+  }
+}

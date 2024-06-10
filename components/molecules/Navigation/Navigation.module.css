@@ -1,0 +1,26 @@
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+@media (max-width: 991px) {
+  .navigation {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    gap: 16px;
+    margin-top: 40px;
+  }
+}
+
+.footerNavigation {
+  gap: 20px;
+}
+
+.burgerHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
