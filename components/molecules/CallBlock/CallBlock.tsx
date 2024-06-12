@@ -61,7 +61,11 @@ const CallBlock: React.FC<ICallBlock> = ({
         (!isTablet ? (
           <Button label="Отправить" onClick={handleClick} />
         ) : (
-          <Button label="Оставить заявку" onClick={handleClick} />
+          <Button
+            label="Оставить заявку"
+            onClick={handleClick}
+            className={styles.button}
+          />
         ))}
     </div>
   );

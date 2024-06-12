@@ -1,10 +1,11 @@
-import Image from "next/image";
-import React, { useCallback, useState } from "react";
-import router, { useRouter } from "next/router";
 import dynamic from "next/dynamic";
+import Image from "next/image";
+import { useRouter } from "next/router";
+import React, { useCallback, useEffect, useState } from "react";
 import styles from "./ProductCard.module.css";
 import { fetchProductById } from "/api/wordpressApi";
 import Text from "/components/atoms/Text/Text";
+import { useImageContext } from "/context/ImageContext";
 import { usePopup } from "/context/PopupContext";
 import { noneImage } from "/utils/constants";
 
@@ -43,7 +44,10 @@ const ProductCard: React.FC<ICardProps> = ({
   isCatalogProduct,
 }) => {
   const { openPopup } = usePopup();
+  const { loadedImages, addImage } = useImageContext();
   const [productCache, setProductCache] = useState<Record<number, any>>({});
+  const [cachedImageUrl, setCachedImageUrl] = useState(image || noneImage);
+  const router = useRouter();
 
   const handleClickMore = useCallback(async () => {
     openPopup(<Loading />, true);
@@ -69,7 +73,7 @@ const ProductCard: React.FC<ICardProps> = ({
         [id]: cardInfo,
       }));
 
-      isCatalogProduct &&
+      if (isCatalogProduct) {
         router.push(
           `/catalog?category=${productCategory}${
             router.query.page ? `&page=${router.query.page}` : ""
@@ -77,27 +81,39 @@ const ProductCard: React.FC<ICardProps> = ({
           undefined,
           { shallow: true }
         );
+      }
 
       openPopup(<ProductInfoCard cardInfo={cardInfo} />);
     } catch (error) {
       console.error("Failed to fetch product details:", error);
     }
-  }, [id, productCache, openPopup]);
+  }, [id, productCache, openPopup, isCatalogProduct, productCategory, router]);
 
   const handleClickContact = useCallback(() => {
     openPopup(<ContactPopup />);
   }, [openPopup]);
 
+  const imageUrl = image || noneImage;
+
+  useEffect(() => {
+    if (!loadedImages.has(imageUrl)) {
+      addImage(imageUrl);
+    } else {
+      setCachedImageUrl(loadedImages.get(imageUrl)!);
+    }
+  }, [imageUrl, loadedImages, addImage]);
+
   return (
     <div className={styles.card}>
       <div className={styles.cardImageContainer}>
         <Image
-          src={image || noneImage}
+          src={cachedImageUrl}
           alt={title}
           className={styles.cardImage}
-          width={300}
-          height={300}
+          width={500}
+          height={500}
           objectFit="cover"
+          quality={100}
         />
       </div>
       <div className={styles.cardInfoContainer}>

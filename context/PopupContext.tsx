@@ -1,11 +1,12 @@
-import React, {
-  createContext,
-  useState,
-  useContext,
-  ReactNode,
-  FC,
-} from "react";
 import { useRouter } from "next/router";
+import {
+  FC,
+  ReactNode,
+  createContext,
+  useContext,
+  useState,
+} from "react";
+import { ImageProvider } from "./ImageContext";
 
 interface PopupContextProps {
   isOpen: boolean;
@@ -50,7 +51,11 @@ export const PopupProvider: FC<{ children: ReactNode }> = ({ children }) => {
       value={{ isOpen, openPopup, closePopup, content, isLoader }}
     >
       {children}
-      {isOpen && <div>{content}</div>}
+      {isOpen && (
+        <ImageProvider> {/* Wrap the content with ImageProvider */}
+          <div>{content}</div>
+        </ImageProvider>
+      )}
     </PopupContext.Provider>
   );
 };

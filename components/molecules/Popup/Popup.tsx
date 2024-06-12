@@ -34,15 +34,17 @@ const Popup: React.FC = () => {
 
   if (!isOpen) return null;
 
+  if (!content) return <Loading />;
+
   return (
     <div className={styles.overlay} onClick={handleOverlayClick}>
       <div className={styles.popupContent}>
-        {!isLoader && (
+        {!isLoader && content && (
           <button className={styles.closeButton} onClick={closePopup}>
             ×
           </button>
         )}
-        {content ? content : <Loading />}
+        {content}
       </div>
     </div>
   );

@@ -29,6 +29,7 @@ const About: React.FC<AboutProps> = ({ aboutData }) => {
           layout="responsive"
           width={700}
           height={475}
+          quality={100}
         />
       </div>
     </section>

@@ -1,8 +1,9 @@
 import dynamic from "next/dynamic";
 import Image from "next/image";
-import React, { useCallback } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import styles from "./ProductInfoCard.module.css";
 import Text from "/components/atoms/Text/Text";
+import { useImageContext } from "/context/ImageContext";
 import { usePopup } from "/context/PopupContext";
 import { noneImage } from "/utils/constants";
 
@@ -33,21 +34,38 @@ interface ICardProps {
 
 const ProductInfoCard: React.FC<ICardProps> = ({ cardInfo }) => {
   const { openPopup } = usePopup();
+  const { loadedImages, addImage } = useImageContext();
+  const [cachedImageUrl, setCachedImageUrl] = useState(
+    cardInfo.image || noneImage
+  );
+
+  const imageRef = useRef<HTMLImageElement>(null);
 
   const handleClickContact = useCallback(() => {
     openPopup(<ContactPopup />);
   }, [openPopup]);
 
+  const imageUrl = cardInfo.image || noneImage;
+
+  useEffect(() => {
+    if (!loadedImages.has(imageUrl)) {
+      addImage(imageUrl);
+    } else {
+      setCachedImageUrl(loadedImages.get(imageUrl)!);
+    }
+  }, [imageUrl, loadedImages, addImage]);
+
   return (
     <div className={styles.card}>
       <Image
-        src={cardInfo.image || noneImage}
+        src={cachedImageUrl}
         className={styles.cardImage}
         alt="Product Image"
-        width={400}
-        height={400}
-        layout="responsive"
-        objectFit="contain"
+        width={448}
+        height={560}
+        quality={100}
+        priority
+        ref={imageRef}
       />
       <div className={styles.cardInfoContainer}>
         <div className={styles.cardInfoHead}>
@@ -91,8 +109,8 @@ const ProductInfoCard: React.FC<ICardProps> = ({ cardInfo }) => {
             >
               Пищевая ценность на 100 г
             </Text>
-            {cardInfo.attributes.map((item) => (
-              <div className={styles.detailsRow} key={item.id}>
+            {cardInfo.attributes.map((item, index) => (
+              <div className={styles.detailsRow} key={`${item.id}-${index}`}>
                 <Text variant="card" className={styles.detailsItemTitle}>
                   {item.slug}
                 </Text>

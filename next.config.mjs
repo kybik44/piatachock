@@ -10,6 +10,19 @@ const nextConfig = {
   images: {
     domains: ['admin-piatachok.by'],
   },
+  async headers() {
+    return [
+      {
+        source: '/:all*(jpg|jpeg|gif|png|svg|webp)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+    ];
+  },
   webpack: (config, { isServer }) => {
     config.resolve.alias = {
       ...config.resolve.alias,
@@ -21,7 +34,7 @@ const nextConfig = {
       '/utils': path.resolve(__dirname, 'utils'),
       '/public': path.resolve(__dirname, 'public'),
     };
-    
+
     return config;
   },
 };

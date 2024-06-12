@@ -5,6 +5,7 @@
   padding: 40px;
   border-radius: 20px;
   max-width: 1217px;
+  max-height: 653px;
   position: relative;
   gap: 40px;
   align-items: stretch;
@@ -20,16 +21,50 @@
 }
 
 .cardImage {
-  max-width: 573px;
-  object-fit: cover;
+  width: auto;
   border-radius: 10px;
 }
 
 .cardInfoContainer {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   color: #1b1b1b;
+}
+
+.skeleton {
+  background-color: #f0f0f0; /* Light grey color for the skeleton */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.skeleton::after {
+  content: "";
+  width: 50%;
+  height: 50%;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.6);
+  border-top-color: rgba(0, 0, 0, 0.1);
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.imagePlaceholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f0f0f0; /* Цвет фона плейсхолдера */
 }
 
 .title {
@@ -68,7 +103,15 @@
   justify-content: space-between;
 }
 
+.button {
+  margin-top: auto;
+}
+
 @media (max-width: 991px) {
+  .card {
+    max-height: 100%;
+  }
+
   .cardInfoHead {
     padding: 0 20px;
   }
@@ -76,6 +119,8 @@
   .cardImage {
     margin: auto;
     max-height: 300px;
+    width: 100%;
+    object-fit: cover;
   }
   .title {
     margin-bottom: 8px;
@@ -107,5 +152,6 @@
 @media (max-width: 640px) {
   .cardImage {
     max-height: 234px;
+    width: 100%;
   }
 }

@@ -18,6 +18,7 @@ const CatalogItem: FC<CatalogItemProps> = ({ imageSrc, name, onClick }) => {
         className={styles.catalogItemImage}
         width={300}
         height={300}
+        quality={100}
       />
       <div className={styles.catalogItemOverlay}>
         <Text variant="h6" className={styles.catalogItemText}>

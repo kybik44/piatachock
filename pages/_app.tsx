@@ -6,6 +6,7 @@ import { ThemeProvider } from "/context/ThemeContext";
 import "/styles/global.css";
 import dynamic from "next/dynamic";
 import ScrollToTop from "/components/atoms/ScrollToTop/ScrollToTop";
+import { ImageProvider } from "../context/ImageContext";
 
 const Header = dynamic(() => import("/components/organisms/Header/Header"), {
   ssr: false,
@@ -22,11 +23,13 @@ function MyApp({ Component, pageProps }: AppProps) {
     <ThemeProvider>
       <PopupProvider>
         <GlobalProvider>
-          <Header />
-          <Component {...pageProps} />
-          <Footer />
-          <Popup />
-          <ScrollToTop />
+          <ImageProvider>
+            <Header />
+            <Component {...pageProps} />
+            <Footer />
+            <Popup />
+            <ScrollToTop />
+          </ImageProvider>
         </GlobalProvider>
       </PopupProvider>
     </ThemeProvider>
